@@ -80,6 +80,7 @@ function reduceApp (state, action) {
     networksTabSelectedRpcUrl: '',
     networksTabIsInAddMode: false,
     loadingMethodData: false,
+    waitingForWyreSigRequest: false,
   }, state.appState)
 
   switch (action.type) {
@@ -774,6 +775,15 @@ function reduceApp (state, action) {
         loadingMethodData: false,
       })
 
+    case actions.WAIT_FOR_WYRE_SIG_REQUEST:
+      return extend(appState, {
+        waitingForWyreSigRequest: true,
+      })
+
+    case actions.STOP_WAITING_FOR_WYRE_SIG_REQUEST:
+      return extend(appState, {
+        waitingForWyreSigRequest: false,
+      })
 
     default:
       return appState

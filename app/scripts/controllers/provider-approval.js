@@ -69,7 +69,7 @@ class ProviderApprovalController extends SafeEventEmitter {
     if (!force && this.approvedOrigins[origin] && this.caching && isUnlocked) {
       return
     }
-    this.openPopup && this.openPopup()
+    this.openPopup && this.openPopup({ isProviderApproval: true })
   }
 
   /**
