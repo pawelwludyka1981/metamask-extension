@@ -19,7 +19,7 @@ Simply follow the steps in [the publishing guide](./publishing.md).
 ### Prepare Rollback Release
 
 1. Be on the new risky version branch.
-2. Run `npm run rollback $ROLLBACK_TARGET_VERSION`.
+2. Run `yarn rollback $ROLLBACK_TARGET_VERSION`.
 
 The rollback version will now be a branch and tag on the origin.
 

@@ -22,7 +22,7 @@ We try to ensure certain criteria are met before deploying:
 
 Version can be automatically incremented [using our bump script](./bumping-version.md).
 
-npm run version:bump `$BUMP_TYPE` where `$BUMP_TYPE` is one of `major`, `minor`, or `patch`.
+yarn version:bump `$BUMP_TYPE` where `$BUMP_TYPE` is one of `major`, `minor`, or `patch`.
 
 ## Preparing for Sensitive Changes
 
@@ -41,7 +41,7 @@ With each pull request, the @MetaMaskBot will comment with a build of that new p
 3. Publish to [firefox addon marketplace](http://addons.mozilla.org/en-us/firefox/addon/ether-metamask).
 4. Publish to [Opera store](https://addons.opera.com/en/extensions/details/metamask/).
 5. Post on [Github releases](https://github.com/MetaMask/metamask-extension/releases) page.
-6. Run the `npm run announce` script, and post that announcement in our public places.
+6. Run the `yarn announce` script, and post that announcement in our public places.
 
 ## Hotfix Differences
 
