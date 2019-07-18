@@ -323,6 +323,7 @@ var actions = {
   setUseNativeCurrencyAsPrimaryCurrencyPreference,
   setShowFiatConversionOnTestnetsPreference,
   setAutoLogoutTimeLimit,
+  setThreeBoxSyncing,
 
   // Onboarding
   setCompletedOnboarding,
@@ -2477,6 +2478,24 @@ function setShowFiatConversionOnTestnetsPreference (value) {
 
 function setAutoLogoutTimeLimit (value) {
   return setPreference('autoLogoutTimeLimit', value)
+}
+
+function setThreeBoxSyncing (newThreeBoxSyncingState) {
+  return dispatch => {
+    dispatch(actions.showLoadingIndication())
+    return new Promise((resolve, reject) => {
+      background.setThreeBoxSyncing(newThreeBoxSyncingState, (err) => {
+        dispatch(actions.hideLoadingIndication())
+
+        if (err) {
+          dispatch(actions.displayWarning(err.message))
+          return reject(err)
+        }
+
+        resolve()
+      })
+    })
+  }
 }
 
 function setCompletedOnboarding () {
