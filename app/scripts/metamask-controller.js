@@ -190,6 +190,7 @@ module.exports = class MetamaskController extends EventEmitter {
       keyringController: this.keyringController,
       provider: this.provider,
       restoreFrom3Box: false,
+      initState: initState.ThreeBoxController,
     })
 
     // tx mgmt
@@ -271,6 +272,7 @@ module.exports = class MetamaskController extends EventEmitter {
       NetworkController: this.networkController.store,
       InfuraController: this.infuraController.store,
       CachedBalancesController: this.cachedBalancesController.store,
+      ThreeBoxController: this.threeBoxController.store,
     })
 
     this.memStore = new ComposableObservableStore(null, {
@@ -292,6 +294,7 @@ module.exports = class MetamaskController extends EventEmitter {
       ShapeshiftController: this.shapeshiftController,
       InfuraController: this.infuraController.store,
       ProviderApprovalController: this.providerApprovalController.store,
+      ThreeBoxController: this.threeBoxController.store,
     })
     this.memStore.subscribe(this.sendUpdate.bind(this))
   }
@@ -407,6 +410,7 @@ module.exports = class MetamaskController extends EventEmitter {
     const txController = this.txController
     const networkController = this.networkController
     const providerApprovalController = this.providerApprovalController
+    const threeBoxController = this.threeBoxController
 
     return {
       // etc
@@ -509,6 +513,9 @@ module.exports = class MetamaskController extends EventEmitter {
       approveProviderRequestByOrigin: providerApprovalController.approveProviderRequestByOrigin.bind(providerApprovalController),
       rejectProviderRequestByOrigin: providerApprovalController.rejectProviderRequestByOrigin.bind(providerApprovalController),
       clearApprovedOrigins: providerApprovalController.clearApprovedOrigins.bind(providerApprovalController),
+
+      // 3box syncing
+      setThreeBoxSyncing: nodeify(threeBoxController.setThreeBoxSyncing, threeBoxController),
     }
   }
 
