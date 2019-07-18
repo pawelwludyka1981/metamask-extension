@@ -11,6 +11,7 @@
     "build:test": "gulp build:test",
     "test": "npm run test:unit && npm run lint",
     "dapp": "static-server test/e2e/contract-test --port 8080",
+    "sendwithprivatedapp": "static-server test/e2e/send-eth-with-private-key-test --port 8080",
     "dapp-chain": "GANACHE_ARGS='-b 2' concurrently -k -n ganache,dapp -p '[{time}][{name}]' 'npm run ganache:start' 'sleep 5 && static-server test/e2e/contract-test --port 8080'",
     "watch:test:unit": "nodemon --exec \"npm run test:unit\" ./test ./app ./ui",
     "test:unit": "cross-env METAMASK_ENV=test mocha --exit --require test/setup.js --recursive \"test/unit/**/*.js\" \"ui/app/**/*.test.js\"",
