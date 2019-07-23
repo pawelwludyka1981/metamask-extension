@@ -106,7 +106,7 @@
     "human-standard-token-abi": "^2.0.0",
     "inject-css": "^0.1.1",
     "jazzicon": "^1.2.0",
-    "json-rpc-capabilities-middleware": "^0.15.0",
+    "json-rpc-capabilities-middleware": "^0.15.1",
     "json-rpc-engine": "^4.0.0",
     "json-rpc-middleware-stream": "^2.1.1",
     "jsonschema": "^1.2.4",
